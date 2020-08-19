@@ -8,9 +8,11 @@ document.addEventListener('keydown', function(event) {
     }
 });
 
+
+
 // add row
 function tambahBaris() {
-    baris = "<tr><td class='cell100 column1 nama'><input type='text' value='' id='nama'></td><td class='cell100 column2 umur'><input type='text' value='' id='umur'></td><td class='cell100 column3 kelas'><input type='text' value='' id='kelas'></td><td class='cell100 column4 jurusan'><input type='text' value='' id='jurusan'></td><td class='cell100 column5 alamat'><input type='text' value='' id='alamat'></td></tr>"
+    baris = "<tr><td class='cell100 column1 nama'><input type='text' value='' id='nama'></td><td class='cell100 column2 umur'><input type='text' value='' id='umur'></td><td class='cell100 column3 kelas'><input type='text' value='' id='kelas'></td><td class='cell100 column4 jurusan'><input type='text' value='' id='jurusan'></td><td class='cell100 column5 alamat'><input type='text' value='' id='alamat'></td><td class='remove'></td></tr>"
     tableBody = $("table tbody");
     tableBody.append(baris);
 }
@@ -30,5 +32,11 @@ function tambahData() {
     $('.kelas').html(kelas);
     $('.jurusan').html(jurusan);
     $('.alamat').html(alamat);
+
+    let btnRemove = $("<button id='remove' class='btn btn-danger'>hapus</button>").click(function() {
+        $("tbody tr:last").remove()
+    })
+    $('.remove').html('');
+    $('.remove').append(btnRemove)
 
 }
